@@ -381,6 +381,7 @@ WHERE revenue > (SELECT AVG(revenue) FROM items);
 
 * Write a query that returns the sum of all items that have a category of dinner.
 ```sql
+SELECT SUM(i.revenue)
 FROM categories c
 INNER JOIN item_categories ic
 ON c.id = ic.category_id
