@@ -191,5 +191,9 @@ ORDER BY average_grade;
 ```
 * List students' name and their grade IF their grade is lower than the average.
 ```sql
-SELECT
+SELECT students.name, classes.name, enrollments.grade
+FROM students
+JOIN enrollments ON students.id = enrollments.student_id
+JOIN classes ON classes.id = enrollments.class_id
+WHERE enrollments.grade < (SELECT ROUND(AVG(grade),2 FROM students JOIN enrollments ON students.id = enrollments.student_id);
 ```
